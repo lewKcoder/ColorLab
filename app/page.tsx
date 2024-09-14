@@ -1,5 +1,6 @@
 "use client";
 
+import { Heading } from "./components";
 import styles from "./styles.module.scss";
 
 export default function Home() {
@@ -7,7 +8,9 @@ export default function Home() {
 
   return (
     <div className={`${styles.container} container`}>
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <Heading />
+      </main>
 
       <style jsx>{`
         .container {
