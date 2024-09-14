@@ -1,0 +1,9 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
