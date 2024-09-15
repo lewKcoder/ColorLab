@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Heading } from "./components";
+import { Heading, Loading } from "./components";
 import styles from "./styles.module.scss";
 
 function hexToRgb(hex: string) {
@@ -37,6 +37,10 @@ export default function Home() {
   useEffect(() => {
     setResultColor(blendColors(color1, color2));
   }, [color1, color2]);
+
+  if (!resultColor) {
+    return <Loading />;
+  }
 
   return (
     <div className={`${styles.container} container`}>
