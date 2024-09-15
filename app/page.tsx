@@ -16,16 +16,23 @@ export default function Home() {
           <h2 className={styles.color}>{color}</h2>
 
           <div className={styles.color_scheme}>
+            <input
+              type="color"
+              id="color-pick1"
+              className={styles.color_pick1}
+            />
             <div className={styles.color1}>
-              <svg
-                width="200"
-                height="200"
-                viewBox="0 0 200 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="100" cy="100" r="99.5" stroke="white" />
-              </svg>
+              <label htmlFor="color-pick1">
+                <svg
+                  width="200"
+                  height="200"
+                  viewBox="0 0 200 200"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="100" cy="100" r="99.5" stroke="white" />
+                </svg>
+              </label>
             </div>
 
             <div className={styles.color_result}>
@@ -51,16 +58,23 @@ export default function Home() {
               </svg>
             </div>
 
+            <input
+              type="color"
+              id="color-pick2"
+              className={styles.color_pick2}
+            />
             <div className={styles.color2}>
-              <svg
-                width="200"
-                height="200"
-                viewBox="0 0 200 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="100" cy="100" r="99.5" stroke="white" />
-              </svg>
+              <label htmlFor="color-pick2">
+                <svg
+                  width="200"
+                  height="200"
+                  viewBox="0 0 200 200"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="100" cy="100" r="99.5" stroke="white" />
+                </svg>
+              </label>
             </div>
 
             <div className={styles.add_color}>

@@ -21,6 +21,15 @@
   height: 220px;
 }
 
+.color_pick1,
+.color_pick2 {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+}
+
 .color1 {
   position: absolute;
 }
