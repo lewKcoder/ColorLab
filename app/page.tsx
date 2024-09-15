@@ -50,15 +50,13 @@ export default function Home() {
 
             <div className={styles.color_result}>
               <svg
-                width="100"
+                width="104"
                 height="174"
-                viewBox="0 0 100 174"
+                viewBox="0 0 102 175"
                 xmlns="http://www.w3.org/2000/svg"
                 fill={resultColor}
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
                   d="M50 173.244C79.8901 155.953 100 123.636 100 86.6218C100 49.6076 79.8901 17.2905 50 -1.46344e-05C20.1099 17.2905 0 49.6076 0 86.6218C0 123.636 20.1099 155.953 50 173.244Z"
                   stroke="white"
                 />
