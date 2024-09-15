@@ -10,6 +10,8 @@ export default function Home() {
     <div className={`${styles.container} container`}>
       <main className={styles.main}>
         <Heading />
+
+        <h2 className={styles.color}>#F046CD</h2>
       </main>
 
       <style jsx>{`
