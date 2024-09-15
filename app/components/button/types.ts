@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 
 type Props = {
-  isCompactMode: boolean;
+  isThreeColors: boolean;
   onClick: () => void;
 };
 
