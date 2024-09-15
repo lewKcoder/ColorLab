@@ -1,11 +1,42 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Heading } from "./components";
 import styles from "./styles.module.scss";
 
+function hexToRgb(hex: string) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return { r, g, b };
+}
+
+function rgbToHex(r: number, g: number, b: number) {
+  return (
+    "#" +
+    ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()
+  );
+}
+
+function blendColors(hex1: string, hex2: string) {
+  const color1 = hexToRgb(hex1);
+  const color2 = hexToRgb(hex2);
+
+  const r = Math.floor((color1.r + color2.r) / 2);
+  const g = Math.floor((color1.g + color2.g) / 2);
+  const b = Math.floor((color1.b + color2.b) / 2);
+
+  return rgbToHex(r, g, b);
+}
+
 export default function Home() {
-  const backgroundColor = "red";
-  const color = "#F046CD";
+  const [color1, setColor1] = useState("#ffffff");
+  const [color2, setColor2] = useState("#ff0000");
+  const [resultColor, setResultColor] = useState("");
+
+  useEffect(() => {
+    setResultColor(blendColors(color1, color2));
+  }, [color1, color2]);
 
   return (
     <div className={`${styles.container} container`}>
@@ -13,21 +44,46 @@ export default function Home() {
         <Heading />
 
         <div className={styles.content}>
-          <h2 className={styles.color}>{color}</h2>
+          <h2 className={styles.color}>{blendColors(color1, color2)}</h2>
 
           <div className={styles.color_scheme}>
             <input
               type="color"
               id="color-pick1"
               className={styles.color_pick1}
+              onChange={(e) => {
+                setColor1(e.target.value);
+              }}
             />
             <div className={styles.color1}>
-              <label htmlFor="color-pick1">
+              <label htmlFor="color-pick1" className={styles.label}>
                 <svg
                   width="200"
                   height="200"
                   viewBox="0 0 200 200"
-                  fill="none"
+                  fill={color1}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="100" cy="100" r="99.5" stroke="white" />
+                </svg>
+              </label>
+            </div>
+
+            <input
+              type="color"
+              id="color-pick2"
+              className={styles.color_pick2}
+              onChange={(e) => {
+                setColor2(e.target.value);
+              }}
+            />
+            <div className={styles.color2}>
+              <label htmlFor="color-pick2" className={styles.label}>
+                <svg
+                  width="200"
+                  height="200"
+                  viewBox="0 0 200 200"
+                  fill={color2}
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <circle cx="100" cy="100" r="99.5" stroke="white" />
@@ -40,41 +96,16 @@ export default function Home() {
                 width="100"
                 height="174"
                 viewBox="0 0 100 174"
-                fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                fill={resultColor}
               >
-                <mask id="path-1-inside-1_1119_2202" fill="white">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M50 173.244C79.8901 155.953 100 123.636 100 86.6218C100 49.6076 79.8901 17.2905 50 -1.46344e-05C20.1099 17.2905 0 49.6076 0 86.6218C0 123.636 20.1099 155.953 50 173.244Z"
-                  />
-                </mask>
                 <path
-                  d="M50 173.244L49.4993 174.109L50 174.399L50.5007 174.109L50 173.244ZM50 -1.46344e-05L50.5007 -0.86562L50 -1.15527L49.4993 -0.86562L50 -1.46344e-05ZM99 86.6218C99 123.264 79.0931 155.259 49.4993 172.378L50.5007 174.109C80.6871 156.647 101 124.007 101 86.6218H99ZM49.4993 0.865591C79.0931 17.9847 99 49.979 99 86.6218H101C101 49.2362 80.6871 16.5962 50.5007 -0.86562L49.4993 0.865591ZM1 86.6218C1 49.979 20.9069 17.9847 50.5007 0.865591L49.4993 -0.86562C19.3129 16.5962 -1 49.2362 -1 86.6218H1ZM50.5007 172.378C20.9069 155.259 1 123.264 1 86.6218H-1C-1 124.007 19.3129 156.647 49.4993 174.109L50.5007 172.378Z"
-                  fill="white"
-                  mask="url(#path-1-inside-1_1119_2202)"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M50 173.244C79.8901 155.953 100 123.636 100 86.6218C100 49.6076 79.8901 17.2905 50 -1.46344e-05C20.1099 17.2905 0 49.6076 0 86.6218C0 123.636 20.1099 155.953 50 173.244Z"
+                  stroke="white"
                 />
               </svg>
-            </div>
-
-            <input
-              type="color"
-              id="color-pick2"
-              className={styles.color_pick2}
-            />
-            <div className={styles.color2}>
-              <label htmlFor="color-pick2">
-                <svg
-                  width="200"
-                  height="200"
-                  viewBox="0 0 200 200"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="100" cy="100" r="99.5" stroke="white" />
-                </svg>
-              </label>
             </div>
 
             <div className={styles.add_color}>
@@ -165,7 +196,7 @@ export default function Home() {
 
       <style jsx>{`
         .container {
-          background-color: ${backgroundColor};
+          background-color: ${resultColor};
         }
       `}</style>
     </div>

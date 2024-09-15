@@ -37,7 +37,7 @@
 .color_result {
   position: absolute;
   right: 100px;
-  top: 13px;
+  top: 14px;
 }
 
 .color2 {
@@ -50,4 +50,9 @@
   right: 134px;
   bottom: 0;
   backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+.label {
+  cursor: pointer;
 }
