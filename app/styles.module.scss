@@ -21,38 +21,17 @@
   height: 220px;
 }
 
-.color_pick1,
-.color_pick2 {
-  width: 0px;
-  height: 0px;
-  position: absolute;
-  bottom: 0;
-  opacity: 0;
-}
-
-.color1 {
-  position: absolute;
-}
-
 .color_result {
   position: absolute;
   right: 100px;
   top: 14px;
 }
 
-.color2 {
+.color_picker1 {
   position: absolute;
-  right: 0px;
 }
 
-.add_color {
+.color_picker2 {
   position: absolute;
-  right: 134px;
-  bottom: 0;
-  backdrop-filter: blur(2px);
-  cursor: pointer;
-}
-
-.label {
-  cursor: pointer;
+  right: 0;
 }
