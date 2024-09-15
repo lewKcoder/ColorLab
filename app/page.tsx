@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { Heading, Loading } from "./components";
 import styles from "./styles.module.scss";
-import { blendColorsFromTwo } from "./utils";
+import { blendColorsFromTwo, getTextColor } from "./utils";
 
 export default function Home() {
   const [color1, setColor1] = useState("#ffffff");
@@ -24,7 +24,9 @@ export default function Home() {
         <Heading />
 
         <div className={styles.content}>
-          <h2 className={styles.color}>{blendColorsFromTwo(color1, color2)}</h2>
+          <h2 className={`${styles.result_color} result_color`}>
+            {blendColorsFromTwo(color1, color2)}
+          </h2>
 
           <div className={styles.color_scheme}>
             <input
@@ -177,6 +179,9 @@ export default function Home() {
       <style jsx>{`
         .container {
           background-color: ${resultColor};
+        }
+        .result_color {
+          color: ${getTextColor(resultColor)};
         }
       `}</style>
     </div>
