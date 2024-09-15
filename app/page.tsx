@@ -3,31 +3,7 @@
 import { useEffect, useState } from "react";
 import { Heading, Loading } from "./components";
 import styles from "./styles.module.scss";
-
-function hexToRgb(hex: string) {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
-  return { r, g, b };
-}
-
-function rgbToHex(r: number, g: number, b: number) {
-  return (
-    "#" +
-    ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1).toUpperCase()
-  );
-}
-
-function blendColors(hex1: string, hex2: string) {
-  const color1 = hexToRgb(hex1);
-  const color2 = hexToRgb(hex2);
-
-  const r = Math.floor((color1.r + color2.r) / 2);
-  const g = Math.floor((color1.g + color2.g) / 2);
-  const b = Math.floor((color1.b + color2.b) / 2);
-
-  return rgbToHex(r, g, b);
-}
+import { blendColorsFromTwo } from "./utils";
 
 export default function Home() {
   const [color1, setColor1] = useState("#ffffff");
@@ -35,7 +11,7 @@ export default function Home() {
   const [resultColor, setResultColor] = useState("");
 
   useEffect(() => {
-    setResultColor(blendColors(color1, color2));
+    setResultColor(blendColorsFromTwo(color1, color2));
   }, [color1, color2]);
 
   if (!resultColor) {
@@ -48,7 +24,7 @@ export default function Home() {
         <Heading />
 
         <div className={styles.content}>
-          <h2 className={styles.color}>{blendColors(color1, color2)}</h2>
+          <h2 className={styles.color}>{blendColorsFromTwo(color1, color2)}</h2>
 
           <div className={styles.color_scheme}>
             <input
