@@ -1,2 +1,2 @@
-export { blendColorsFromTwo } from "./blend-colors-from-two";
+export { blendColorsFromTwo } from "./blend-colors";
 export { getTextColor } from "./get-text-color";

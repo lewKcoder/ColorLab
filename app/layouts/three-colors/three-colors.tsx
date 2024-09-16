@@ -2,7 +2,7 @@ import { Button, ColorElement } from "@/app/components";
 import styles from "./styles.module.scss";
 import { Component } from "./types";
 import { useEffect } from "react";
-import { blendColorsFromThree } from "@/app/utils/blend-colors-from-two";
+import { blendColorsFromThree } from "@/app/utils/blend-colors";
 
 export const LayoutThreeColors: Component = (props) => {
   const {
