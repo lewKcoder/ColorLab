@@ -2,23 +2,21 @@ import { Button, ColorElement, Loading } from "@/app/components";
 import styles from "./styles.module.scss";
 import { Component } from "./types";
 import { useEffect } from "react";
-import { blendColorsFromTwo } from "@/app/utils";
+import { blendMultipleColors } from "@/app/utils";
 
-export const LayoutTwoColors: Component = (props) => {
+export const LayoutColors: Component = (props) => {
   const {
-    color1,
-    color2,
+    colors,
     isThreeColors,
     resultColor,
-    setColor1,
-    setColor2,
+    setColors,
     setIsThreeColors,
     setResultColor,
   } = props;
 
   useEffect(() => {
-    setResultColor(blendColorsFromTwo(color1, color2));
-  }, [color1, color2]);
+    setResultColor(blendMultipleColors(colors));
+  }, [colors]);
 
   if (!resultColor) {
     return <Loading />;
@@ -26,21 +24,17 @@ export const LayoutTwoColors: Component = (props) => {
 
   return (
     <div className={styles.color_scheme}>
-      <div className={styles.color_picker1}>
+      {colors.map((color, index) => (
         <ColorElement
-          id="color-pick1"
-          onChange={(e) => setColor1(e.target.value)}
-          color={color1}
+          key={color}
+          id={`color-pick${index}`}
+          onChange={(e) => {
+            colors[index] = e.target.value;
+            setColors([...colors]);
+          }}
+          color={color}
         />
-      </div>
-
-      <div className={styles.color_picker2}>
-        <ColorElement
-          id="color-pick2"
-          onChange={(e) => setColor2(e.target.value)}
-          color={color2}
-        />
-      </div>
+      ))}
 
       <div className={styles.button}>
         <Button

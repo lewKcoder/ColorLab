@@ -7,7 +7,7 @@ const rgbToHex = (r: number, g: number, b: number) => {
   );
 };
 
-const blendMultipleColors = (colors: string[]) => {
+export const blendMultipleColors = (colors: string[]) => {
   const rgbColors = colors.map(hexToRgb);
 
   const totalColors = colors.length;
@@ -23,16 +23,4 @@ const blendMultipleColors = (colors: string[]) => {
   );
 
   return rgbToHex(r, g, b);
-};
-
-export const blendColorsFromTwo = (hex1: string, hex2: string) => {
-  return blendMultipleColors([hex1, hex2]);
-};
-
-export const blendColorsFromThree = (
-  hex1: string,
-  hex2: string,
-  hex3: string
-) => {
-  return blendMultipleColors([hex1, hex2, hex3]);
 };

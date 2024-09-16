@@ -1,12 +1,10 @@
 import { FunctionComponent } from "react";
 
 type Props = {
-  color1: string;
-  color2: string;
+  colors: string[];
   isThreeColors: boolean;
   resultColor: string;
-  setColor1: (arg: string) => void;
-  setColor2: (arg: string) => void;
+  setColors: (arg: string[]) => void;
   setIsThreeColors: (arg: boolean) => void;
   setResultColor: (color: string) => void;
 };
