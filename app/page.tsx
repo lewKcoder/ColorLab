@@ -7,9 +7,9 @@ import { getTextColor } from "./utils";
 import { LayoutThreeColors, LayoutTwoColors } from "./layouts";
 
 export default function Home() {
-  const [color1, setColor1] = useState("#ffffff");
-  const [color2, setColor2] = useState("#ff0000");
-  const [color3, setColor3] = useState("#ff00ff");
+  const [color1, setColor1] = useState("#f5b4b4");
+  const [color2, setColor2] = useState("#f85c5c");
+  const [color3, setColor3] = useState("#40ad70");
   const [resultColor, setResultColor] = useState("");
   const [isThreeColors, setIsThreeColors] = useState(false);
 
@@ -41,7 +41,6 @@ export default function Home() {
               color1={color1}
               color2={color2}
               color3={color3}
-              resultColor={resultColor}
               isThreeColors={isThreeColors}
               setColor1={setColor1}
               setColor2={setColor2}

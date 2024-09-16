@@ -20,7 +20,7 @@ export const ColorElement: Component = (props) => {
           fill={color}
           xmlns="http://www.w3.org/2000/svg"
         >
-          <circle cx="100" cy="100" r="99.5" stroke="white" />
+          <circle cx="100" cy="100" r="99.5" />
         </svg>
       </label>
     </>

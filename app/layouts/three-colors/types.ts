@@ -5,7 +5,6 @@ type Props = {
   color2: string;
   color3: string;
   isThreeColors: boolean;
-  resultColor: string;
   setColor1: (arg: string) => void;
   setColor2: (arg: string) => void;
   setColor3: (arg: string) => void;
