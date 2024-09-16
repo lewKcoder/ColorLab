@@ -1,0 +1,50 @@
+.color_scheme {
+  position: relative;
+  width: 300px;
+  height: 220px;
+}
+
+.color_result1 {
+  position: absolute;
+  right: 97px;
+  top: 14px;
+}
+
+.color_result2 {
+  position: absolute;
+  top: 99px;
+  left: 101px;
+}
+
+.color_result3 {
+  position: absolute;
+  top: 99px;
+  left: 51px;
+}
+
+.color_picker1 {
+  position: absolute;
+}
+
+.color_picker2 {
+  position: absolute;
+  right: 0;
+}
+
+.color_picker3 {
+  position: absolute;
+  right: 48px;
+  top: 98px;
+}
+
+.color_result {
+  position: absolute;
+  top: 99px;
+  left: 100px;
+}
+
+.button {
+  position: absolute;
+  right: 134px;
+  bottom: -100px;
+}

@@ -12,13 +12,29 @@ const rgbToHex = (r: number, g: number, b: number) => {
   );
 };
 
-export const blendColors = (hex1: string, hex2: string) => {
+export const blendColorsFromTwo = (hex1: string, hex2: string) => {
   const color1 = hexToRgb(hex1);
   const color2 = hexToRgb(hex2);
 
   const r = Math.floor((color1.r + color2.r) / 2);
   const g = Math.floor((color1.g + color2.g) / 2);
   const b = Math.floor((color1.b + color2.b) / 2);
+
+  return rgbToHex(r, g, b);
+};
+
+export const blendColorsFromThree = (
+  hex1: string,
+  hex2: string,
+  hex3: string
+) => {
+  const color1 = hexToRgb(hex1);
+  const color2 = hexToRgb(hex2);
+  const color3 = hexToRgb(hex3);
+
+  const r = Math.floor((color1.r + color2.r + color3.r) / 3);
+  const g = Math.floor((color1.g + color2.g + color3.g) / 3);
+  const b = Math.floor((color1.b + color2.b + color3.b) / 3);
 
   return rgbToHex(r, g, b);
 };

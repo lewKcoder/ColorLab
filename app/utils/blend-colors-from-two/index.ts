@@ -1,1 +1,4 @@
-export { blendColors as blendColorsFromTwo } from "./blend-colors-from-two";
+export {
+  blendColorsFromTwo,
+  blendColorsFromThree,
+} from "./blend-colors-from-two";

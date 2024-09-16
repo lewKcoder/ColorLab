@@ -1,17 +1,28 @@
-import { Button, ColorElement } from "@/app/components";
+import { Button, ColorElement, Loading } from "@/app/components";
 import styles from "./styles.module.scss";
 import { Component } from "./types";
+import { useEffect } from "react";
+import { blendColorsFromTwo } from "@/app/utils";
 
 export const LayoutTwoColors: Component = (props) => {
   const {
     color1,
     color2,
-    resultColor,
     isThreeColors,
+    resultColor,
     setColor1,
     setColor2,
     setIsThreeColors,
+    setResultColor,
   } = props;
+
+  useEffect(() => {
+    setResultColor(blendColorsFromTwo(color1, color2));
+  }, [color1, color2]);
+
+  if (!resultColor) {
+    return <Loading />;
+  }
 
   return (
     <div className={styles.color_scheme}>
@@ -46,10 +57,12 @@ export const LayoutTwoColors: Component = (props) => {
         </svg>
       </div>
 
-      <Button
-        isThreeColors={isThreeColors}
-        onClick={() => setIsThreeColors(!isThreeColors)}
-      />
+      <div className={styles.button}>
+        <Button
+          isThreeColors={isThreeColors}
+          onClick={() => setIsThreeColors(!isThreeColors)}
+        />
+      </div>
     </div>
   );
 };
