@@ -48,9 +48,9 @@ export const Button: Component = (props) => {
             width="40"
             height="40"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feGaussianBlur in="BackgroundImageFix" stdDeviation="2" />
             <feComposite
               in2="SourceAlpha"
@@ -72,8 +72,8 @@ export const Button: Component = (props) => {
             y2="2"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="white" stop-opacity="0.3" />
-            <stop offset="1" stop-color="white" stop-opacity="0.1" />
+            <stop stopColor="white" stopOpacity="0.3" />
+            <stop offset="1" stopColor="white" stopOpacity="0.1" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_1119_2205"
@@ -83,8 +83,8 @@ export const Button: Component = (props) => {
             y2="30"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="white" stop-opacity="0.5" />
-            <stop offset="1" stop-color="white" stop-opacity="0.1" />
+            <stop stopColor="white" stopOpacity="0.5" />
+            <stop offset="1" stopColor="white" stopOpacity="0.1" />
           </linearGradient>
         </defs>
       </svg>
