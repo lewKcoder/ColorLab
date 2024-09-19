@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { Component } from "./types";
 
 export const Button: Component = (props) => {
-  const { isThreeColors, onClick } = props;
+  const { onClick } = props;
 
   return (
     <button onClick={onClick} className={styles.container}>
@@ -37,9 +37,7 @@ export const Button: Component = (props) => {
           transform="rotate(-90 6 17.5)"
           fill="#D9D9D9"
         />
-        {!isThreeColors && (
-          <rect x="14.5" y="6" width="3" height="20" fill="#D9D9D9" />
-        )}
+        <rect x="14.5" y="6" width="3" height="20" fill="#D9D9D9" />
         <defs>
           <filter
             id="filter"

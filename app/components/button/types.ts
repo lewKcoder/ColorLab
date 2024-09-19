@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react";
 
 type Props = {
-  isThreeColors: boolean;
   onClick: () => void;
 };
 
