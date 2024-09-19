@@ -1,12 +1,13 @@
 import { Button, ColorElement, Loading } from "@/app/components";
 import styles from "./styles.module.scss";
-import { FunctionComponent, useEffect, useState } from "react";
-import { blendMultipleColors, getTextColor } from "@/app/utils";
+import { Component } from "./types";
+import { useEffect, useState } from "react";
+import { blendMultipleColors } from "@/app/utils";
 
-export const LayoutColors: FunctionComponent = () => {
+export const LayoutColors: Component = (props) => {
+  const { resultColor, setResultColor } = props;
+
   const [colors, setColors] = useState(["#f5b4b4", "#f85c5c"]);
-  const [isThreeColors, setIsThreeColors] = useState(false);
-  const [resultColor, setResultColor] = useState("");
 
   useEffect(() => {
     setResultColor(blendMultipleColors(colors));
@@ -17,10 +18,8 @@ export const LayoutColors: FunctionComponent = () => {
   }
 
   return (
-    <div className={styles.content}>
-      <h2 className={`${styles.result_color} result_color`}>{resultColor}</h2>
-
-      <div className={styles.color_scheme}>
+    <div className={styles.color_scheme}>
+      <div className={`${styles.colors} colors`}>
         {colors.map((color, index) => (
           <ColorElement
             key={index}
@@ -32,22 +31,27 @@ export const LayoutColors: FunctionComponent = () => {
             color={color}
           />
         ))}
-
-        <div className={styles.button}>
-          <Button
-            isThreeColors={isThreeColors}
-            onClick={() => setIsThreeColors(!isThreeColors)}
-          />
-        </div>
       </div>
 
-      <style jsx>{`
-        .container {
-          background-color: ${resultColor};
-        }
-        .result_color {
-          color: ${getTextColor(resultColor)};
-        }
+      <div className={styles.button}>
+        <Button
+          onClick={() => {
+            const randomColor = Math.floor(Math.random() * 16777215).toString(
+              16
+            );
+            console.log(randomColor);
+            setColors([...colors, `#${randomColor}`]);
+          }}
+        />
+      </div>
+
+      <style>{`
+      .colors {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(${colors.length}, 80px);
+        width: calc(${colors.length}* 80px + 120px);
+      }
       `}</style>
     </div>
   );
