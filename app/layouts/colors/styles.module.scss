@@ -14,4 +14,11 @@
 
 .button {
   margin: auto;
+  display: grid;
+  grid-auto-flow: column;
+}
+
+.line {
+  width: 2px;
+  height: 100%;
 }

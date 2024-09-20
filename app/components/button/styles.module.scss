@@ -1,11 +1,13 @@
 .container {
-  backdrop-filter: blur(2px);
   padding: 0;
   border: 0;
-  width: 32px;
+  width: 54px;
   height: 32px;
   background: transparent;
-  border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
+
+  &:hover {
+    background-color: #ededed33;
+  }
 }

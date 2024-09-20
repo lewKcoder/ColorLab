@@ -2,7 +2,7 @@ import { Button, ColorElement, Loading } from "@/app/components";
 import styles from "./styles.module.scss";
 import { Component } from "./types";
 import { useEffect, useState } from "react";
-import { blendMultipleColors } from "@/app/utils";
+import { blendMultipleColors, getTextColor } from "@/app/utils";
 
 export const LayoutColors: Component = (props) => {
   const { resultColor, setResultColor } = props;
@@ -34,25 +34,39 @@ export const LayoutColors: Component = (props) => {
         ))}
       </div>
 
-      {colors.length < 5 && (
-        <div className={styles.button}>
-          <Button
-            onClick={() => {
-              const randomColor = Math.floor(Math.random() * 16777215).toString(
-                16
-              );
-              console.log(randomColor);
-              setColors([...colors, `#${randomColor}`]);
-            }}
-          />
-        </div>
-      )}
+      <div className={styles.button}>
+        <Button
+          resultColor={resultColor}
+          onClick={() => {
+            const slicedColors = colors.slice(0, colors.length - 1);
+            setColors([...slicedColors]);
+          }}
+          disabled={colors.length <= 2}
+          isIncreasing={false}
+        />
+
+        <div className={`${styles.line} line`} />
+
+        <Button
+          resultColor={resultColor}
+          onClick={() => {
+            const randomColor = Math.floor(Math.random() * 16777215).toString(
+              16
+            );
+            setColors([...colors, `#${randomColor}`]);
+          }}
+          disabled={colors.length > 4}
+        />
+      </div>
 
       <style>{`
-      .colors {
-        grid-template-columns: repeat(${colors.length}, 80px);
-        width: calc(${colors.length}* 80px + 120px);
-      }
+        .colors {
+          grid-template-columns: repeat(${colors.length}, 80px);
+          width: calc(${colors.length}* 80px + 120px);
+        }
+        .line {
+          background-color: ${getTextColor(resultColor)};
+        }
       `}</style>
     </div>
   );
