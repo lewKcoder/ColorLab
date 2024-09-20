@@ -1,4 +1,17 @@
+.color_scheme {
+  display: grid;
+  gap: 24px;
+}
+
 .colors {
   display: grid;
   grid-auto-flow: column;
+}
+
+.color {
+  position: relative;
+}
+
+.button {
+  margin: auto;
 }

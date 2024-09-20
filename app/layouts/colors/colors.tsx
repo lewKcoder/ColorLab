@@ -21,34 +21,35 @@ export const LayoutColors: Component = (props) => {
     <div className={styles.color_scheme}>
       <div className={`${styles.colors} colors`}>
         {colors.map((color, index) => (
-          <ColorElement
-            key={index}
-            id={`color-pick${index}`}
-            onChange={(e) => {
-              colors[index] = e.target.value;
-              setColors([...colors]);
-            }}
-            color={color}
-          />
+          <div key={index} className={styles.color}>
+            <ColorElement
+              id={`color-pick${index}`}
+              onChange={(e) => {
+                colors[index] = e.target.value;
+                setColors([...colors]);
+              }}
+              color={color}
+            />
+          </div>
         ))}
       </div>
 
-      <div className={styles.button}>
-        <Button
-          onClick={() => {
-            const randomColor = Math.floor(Math.random() * 16777215).toString(
-              16
-            );
-            console.log(randomColor);
-            setColors([...colors, `#${randomColor}`]);
-          }}
-        />
-      </div>
+      {colors.length < 5 && (
+        <div className={styles.button}>
+          <Button
+            onClick={() => {
+              const randomColor = Math.floor(Math.random() * 16777215).toString(
+                16
+              );
+              console.log(randomColor);
+              setColors([...colors, `#${randomColor}`]);
+            }}
+          />
+        </div>
+      )}
 
       <style>{`
       .colors {
-        display: grid;
-        grid-auto-flow: column;
         grid-template-columns: repeat(${colors.length}, 80px);
         width: calc(${colors.length}* 80px + 120px);
       }
