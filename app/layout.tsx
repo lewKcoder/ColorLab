@@ -22,7 +22,7 @@ export default function RootLayout({
           property="og:description"
           content="この色とあの色を混ぜた時の色は？その色のカラーパレットは？試してみよう！"
         />
-        <meta property="og:image" content="/ogp.png" />
+        <meta property="og:image" content="/ogp-image.png" />
         <meta property="og:url" content="https://chromix.xyz/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -31,7 +31,7 @@ export default function RootLayout({
           name="twitter:description"
           content="この色とあの色を混ぜた時の色は？その色のカラーパレットは？試してみよう！"
         />
-        <meta name="twitter:image" content="/ogp.png" />
+        <meta name="twitter:image" content="/ogp-image.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
