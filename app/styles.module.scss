@@ -22,13 +22,13 @@
 
 .result_copy_content {
   position: relative;
-  width: 256px;
   margin: auto;
   text-align: center;
 }
 
 .result_color {
-  width: 100%;
+  width: 256px;
+  padding: 0;
   font-family: "Montserrat", sans-serif;
   font-size: 48px;
   font-weight: bold;
