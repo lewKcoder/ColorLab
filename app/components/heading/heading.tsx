@@ -28,7 +28,7 @@ export const Heading: FunctionComponent = () => {
             width="189.935"
             height="37.9443"
             filterUnits="userSpaceOnUse"
-            colorInterpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
             <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
