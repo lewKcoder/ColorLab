@@ -8,6 +8,24 @@ import { LayoutColors } from "./layouts";
 
 export default function Home() {
   const [resultColor, setResultColor] = useState("");
+  const [copiedText, setCopiedText] = useState<string>("copy");
+
+  const textColor = getTextColor(resultColor);
+
+  const copyResultColor = () => {
+    navigator.clipboard
+      .writeText(resultColor)
+      .then(() => {
+        setCopiedText("success!");
+      })
+      .catch(() => {
+        setCopiedText("fail...");
+      });
+
+    setTimeout(() => {
+      setCopiedText("copy");
+    }, 2000);
+  };
 
   return (
     <div className={`${styles.container} container`}>
@@ -15,9 +33,18 @@ export default function Home() {
         <Heading />
 
         <div className={styles.content}>
-          <h2 className={`${styles.result_color} result_color`}>
-            {resultColor}
-          </h2>
+          <div className={styles.result_copy_content}>
+            <button
+              className={`${styles.result_color} result_color`}
+              onClick={() => copyResultColor()}
+            >
+              {resultColor}
+            </button>
+
+            <span className={`${styles.copy_status} copy_status`}>
+              {copiedText}
+            </span>
+          </div>
 
           <LayoutColors
             resultColor={resultColor}
@@ -31,7 +58,17 @@ export default function Home() {
           background-color: ${resultColor};
         }
         .result_color {
-          color: ${getTextColor(resultColor)};
+          color: ${textColor};
+          background-color: ${resultColor};
+        }
+        .result_color:hover {
+          outline: 3px solid ${textColor};
+        }
+        .result_color::before {
+          outline: 3px solid ${textColor};
+        }
+        .copy_status {
+          color: ${textColor};
         }
       `}</style>
     </div>
