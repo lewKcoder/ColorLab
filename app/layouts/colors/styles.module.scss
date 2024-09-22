@@ -6,6 +6,10 @@
 .colors {
   display: grid;
   grid-auto-flow: column;
+
+  @media screen and (max-width: 596px) {
+    margin: auto;
+  }
 }
 
 .color {

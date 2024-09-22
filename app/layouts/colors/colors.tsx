@@ -63,6 +63,12 @@ export const LayoutColors: Component = (props) => {
         .colors {
           grid-template-columns: repeat(${colors.length}, 80px);
           width: calc(${colors.length}* 80px + 120px);
+
+          @media screen and (max-width: 596px) {
+            grid-template-rows: repeat(${colors.length}, 80px);
+            width: 200px;
+            height: calc(${colors.length}* 80px + 120px);
+          }
         }
         .line {
           background-color: ${getTextColor(resultColor)};
