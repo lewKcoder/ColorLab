@@ -32,7 +32,7 @@ export default function Home() {
       <main className={styles.main}>
         <Heading />
 
-        <div className={styles.content}>
+        <div className={`${styles.content} content`}>
           <div className={styles.result_copy_content}>
             <button
               className={`${styles.result_color} result_color`}
@@ -54,7 +54,8 @@ export default function Home() {
       </main>
 
       <style jsx>{`
-        .container {
+        .container,
+        .content {
           background-color: ${resultColor};
         }
         .result_color {
